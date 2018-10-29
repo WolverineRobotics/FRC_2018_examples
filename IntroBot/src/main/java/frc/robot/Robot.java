@@ -47,7 +47,6 @@ public class Robot extends IterativeRobot {
   private final Spark d_left1 = new Spark(0);
   private final Spark d_left2 = new Spark(1);
   private final Spark d_right1 = new Spark(2);
-  private final Spark d_right2 = new Spark(3);
 
     //!SECTION
   @Override
