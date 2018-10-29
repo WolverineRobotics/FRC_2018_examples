@@ -14,8 +14,7 @@
 * - Comment Anchors by Exodius Studios
 * - GitLens by Eric Amodio
 * - Simple Icon Theme by LaurentTreguier
-* !SECTION
-*/
+//!SECTION */
 
 package frc.robot;
 
@@ -25,17 +24,17 @@ import edu.wpi.first.wpilibj.Spark;
 
 /*SECTION Main Robot Class
 * NOTE This is main robot class is how we tell the RoboRIO what to do, Everything that is in this class gets run on the RoboRIO
-* !SECTION
-*/
+//!SECTION */
 public class Robot extends IterativeRobot {
-  /* SECTION Robot Instance Variables
+  /*SECTION Joysticks
   * NOTE Joysticks
   * Joysticks/Gamepads are created as their own instances
-  */
+  * You use the port that the joystick is plugged into in the constructor. You can find this in the driverstation devices tab
+  //!SECTION */
   private Joystick j_driver = new Joystick(0);
   private Joystick j_operator = new Joystick(1);
 
-  /*SECTION Speed Controllers
+  /* SECTION Speed Controllers
   * NOTE Intro
   * The speed constructor we use int he code depends on the type of speed controller we use on the robot
   * Victor(x), Talon(x), Spark(x)
@@ -43,16 +42,33 @@ public class Robot extends IterativeRobot {
   * The number we put in the constructor is based on what type of speed controller it is. If the speed controller is a:
   *   PWM speed controller (Red, white, and black cable) - the PWM port it is plugged into on the RoboRIO
   *   CAN speed controller (Green and Yellow) - the CAN ID that it is plugged into
-  */
+  //!SECTION */
   private final Spark d_left1 = new Spark(0);
   private final Spark d_left2 = new Spark(1);
   private final Spark d_right1 = new Spark(2);
+  private final Spark d_right2 = new Spark(3);
 
-    //!SECTION
+  // SECTION Robot methods
+  /*NOTE robotInit()
+  * This method is called when the roboRIO is booted
+  * NOTE robotPeriodic()
+  * This method is called periodically when the robot is on
+  * NOTE teleopInit()
+  * This method is called when teleop is initiated
+  * NOTE teleopPeriodic()
+  * This method is called periodically during the teleop period
+  * NOTE autonomousInit()
+  * This method is called when the autonomous period initiates
+  * NOTE autonomousPeriodic()
+  * This method is called periodically during autonomous
+  * NOTE testInit()
+  * This method is called when test mode is initiated
+  * NOTE testPeriodic()
+  * This method is called periodically during the test period
+  //!SECTION */
   @Override
   public void robotInit() {
   }
-
 
   @Override
   public void robotPeriodic() {
@@ -67,10 +83,10 @@ public class Robot extends IterativeRobot {
   }
 
   @Override
-  public void teleopPeriodic() {
+  public void teleopInit() {
   }
 
   @Override
-  public void testPeriodic() {
+  public void teleopPeriodic() {
   }
 }
