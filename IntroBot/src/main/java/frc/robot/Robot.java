@@ -20,6 +20,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 
 /*SECTION Main Robot Class
@@ -30,9 +31,9 @@ public class Robot extends IterativeRobot {
   /* SECTION Robot Instance Variables
   * NOTE Joysticks
   * Joysticks/Gamepads are created as their own instances
-  * NOTE Robot Components
-  * All components on the robot are created as their own instances
   */
+  private Joystick j_driver = new Joystick(0);
+  private Joystick j_operator = new Joystick(1);
 
   /*SECTION Speed Controllers
   * NOTE Intro
@@ -44,7 +45,9 @@ public class Robot extends IterativeRobot {
   *   CAN speed controller (Green and Yellow) - the CAN ID that it is plugged into
   */
   private final Spark d_left1 = new Spark(0);
-  private final 
+  private final Spark d_left2 = new Spark(1);
+  private final Spark d_right1 = new Spark(2);
+  private final Spark d_right2 = new Spark(3);
 
     //!SECTION
   @Override
