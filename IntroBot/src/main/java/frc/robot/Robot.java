@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
   private final Spark d_right1 = new Spark(2);
   private final Spark d_right2 = new Spark(3);
 
-  // SECTION Robot methods
+  //SECTION Robot methods
   /*NOTE robotInit()
   * This method is called when the roboRIO is booted
   * NOTE robotPeriodic()
@@ -67,7 +67,9 @@ public class Robot extends IterativeRobot {
   * This method is called periodically during the test period
   //!SECTION */
   @Override
-  public void robotInit() {
+  public void robotInit() { 
+  d_right1.setInverted(true); //NOTE The setInverted method in 
+  d_right2.setInverted(true);
   }
 
   @Override
@@ -88,5 +90,13 @@ public class Robot extends IterativeRobot {
 
   @Override
   public void teleopPeriodic() {
+    double drive = j_driver.getRawAxis(1);
+    double turn = j_driver.getRawAxis(4);
+
+    d_left1.setSpeed(drive - turn);
+    d_left2.setSpeed(drive - turn);
+    d_right1.setSpeed(drive + turn);
+    d_rught2.setSpeed(drive + turn);
+
   }
 }
