@@ -96,7 +96,7 @@ public class Robot extends IterativeRobot {
     d_left1.setSpeed(drive - turn);
     d_left2.setSpeed(drive - turn);
     d_right1.setSpeed(drive + turn);
-    d_rught2.setSpeed(drive + turn);
+    d_right2.setSpeed(drive + turn);
 
   }
 }
