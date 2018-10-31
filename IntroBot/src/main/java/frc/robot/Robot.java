@@ -18,6 +18,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
@@ -47,6 +48,16 @@ public class Robot extends IterativeRobot {
   private final Spark d_left2 = new Spark(1);
   private final Spark d_right1 = new Spark(2);
   private final Spark d_right2 = new Spark(3);
+
+  /*SECTION Encoders
+  * NOTE PWM Encoders
+  * PWM Encoders are plugged into 2 ports, one with the ground, Vin and Signal A, and the second port with
+  * signal B
+  * NOTE CAN Enabled encoders
+  * CAN encoders are encoders that communicat through the CAN bus through the Talon SRX
+  //!SECTION */
+  private final Encoder d_leftEnc = new Encoder(0,1);
+  private final Encoder d_rightEnc = new Encoder (2,3);
 
   //SECTION Robot methods
   /*NOTE robotInit()
@@ -82,10 +93,6 @@ public class Robot extends IterativeRobot {
 
   @Override
   public void autonomousPeriodic() {
-  }
-
-  @Override
-  public void teleopInit() {
   }
 
   @Override
