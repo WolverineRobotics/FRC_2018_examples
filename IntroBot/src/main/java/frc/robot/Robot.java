@@ -81,6 +81,8 @@ public class Robot extends IterativeRobot {
   public void robotInit() { 
   d_right1.setInverted(true); //NOTE The setInverted method in 
   d_right2.setInverted(true);
+
+  d_leftEnc.setDistancePerPulse((Math.PI*6)/256);
   }
 
   @Override
@@ -89,10 +91,20 @@ public class Robot extends IterativeRobot {
 
   @Override
   public void autonomousInit() {
+    d_left1.setSpeed(0.3);
+    d_left2.setSpeed(0.3);
+    d_right1.setSpeed(0.3);
+    d_right1.setSpeed(0.3);
   }
 
   @Override
   public void autonomousPeriodic() {
+    if((d_leftEnc.getDistance() + d_rightEnc.getDistance())/2 >= 5){
+      d_left1.setSpeed(0);
+      d_left2.setSpeed(0);
+      d_right1.setSpeed(0);
+      d_right1.setSpeed(0);
+    }
   }
 
   @Override
@@ -104,6 +116,5 @@ public class Robot extends IterativeRobot {
     d_left2.setSpeed(drive - turn);
     d_right1.setSpeed(drive + turn);
     d_right2.setSpeed(drive + turn);
-
   }
 }
