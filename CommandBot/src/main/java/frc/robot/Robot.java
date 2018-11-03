@@ -1,8 +1,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.subsystems.ChassisSubsystem;
 
 public class Robot extends TimedRobot {
+  public ChassisSubsystem chassis = new ChassisSubsystem();
+  public OI oi = new OI();
 
   @Override
   public void robotInit() {
