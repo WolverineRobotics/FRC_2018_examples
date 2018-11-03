@@ -26,6 +26,7 @@ import edu.wpi.first.wpilibj.Spark;
 /*SECTION Main Robot Class
 * NOTE This is main robot class is how we tell the RoboRIO what to do, Everything that is in this class gets run on the RoboRIO
 //!SECTION */
+@SuppressWarnings( "deprecation" )
 public class Robot extends IterativeRobot {
   /*SECTION Joysticks
   * NOTE Joysticks
@@ -33,7 +34,6 @@ public class Robot extends IterativeRobot {
   * You use the port that the joystick is plugged into in the constructor. You can find this in the driverstation devices tab
   //!SECTION */
   private Joystick j_driver = new Joystick(0);
-  private Joystick j_operator = new Joystick(1);
 
   /* SECTION Speed Controllers
   * NOTE Intro
