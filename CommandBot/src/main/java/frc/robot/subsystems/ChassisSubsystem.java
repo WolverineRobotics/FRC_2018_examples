@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.DefaultChassisCommand;
 
 /*SECTION Subsystems
 * Like on the robot, we have specific subsystems for each subsystem on the robot ex. Shooter, Drive, Lift, Feeder etc.
@@ -22,11 +23,11 @@ public class ChassisSubsystem extends Subsystem{
     public ChassisSubsystem(){
         rightMotor1.setInverted(true);
         rightMotor2.setInverted(true);
-
     }
 
     @Override
     protected void initDefaultCommand() {
+        setDefaultCommand(new DefaultChassisCommand());
     }
 
     public void setLeftSpeed(double speed){
