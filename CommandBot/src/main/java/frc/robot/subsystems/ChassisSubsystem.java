@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -17,14 +16,14 @@ public class ChassisSubsystem extends Subsystem{
     private static Spark rightMotor1 = new Spark(RobotMap.RIGHT_MOTOR_1);
     private static Spark rightMotor2 = new Spark(RobotMap.RIGHT_MOTOR_2);
 
-    private static Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_A, RobotMap.LEFT_ENCODER_B);
-    private static Encoder rightEncoder = new Encoder(RobotMap.RIGHT_ENCODER_A, RobotMap.RIGHT_ENCODER_B);
-
     public ChassisSubsystem(){
         rightMotor1.setInverted(true);
         rightMotor2.setInverted(true);
     }
 
+    /*SECTION initDefaultCommand
+    * NOTE This method set the command that the subsystem will run whenever it is not running any commands
+    *!SECTION */
     @Override
     protected void initDefaultCommand() {
         setDefaultCommand(new DefaultChassisCommand());
@@ -41,18 +40,12 @@ public class ChassisSubsystem extends Subsystem{
     }
 
     public double getLeftSpeed(){
-        return rightEncoder.getRate();
+        double speed = (leftMotor1.getSpeed() + leftMotor2.getSpeed()) / 2;
+        return speed;
     }
 
     public double getRightSpeed(){
-        return rightEncoder.getRate();
-    }
-
-    public double getLeftDistance(){
-        return leftEncoder.getDistance();
-    }
-
-    public double getRightDistance(){
-        return rightEncoder.getDistance();
+        double speed = (rightMotor1.getSpeed() + rightMotor2.getSpeed()) / 2;
+        return speed;
     }
 }
